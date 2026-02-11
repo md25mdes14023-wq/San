@@ -1,0 +1,95 @@
+import { AboutMeSection } from "./AboutMeSection";
+import { ContactSection } from "./ContactSection";
+import { HeroSection } from "./HeroSection";
+import IMG29851 from "./IMG-2985-1.png";
+import { KeyProjectsSection } from "./KeyProjectsSection";
+import { WorkExperienceSection } from "./WorkExperienceSection";
+
+export const Wireframe = (): JSX.Element => {
+  const projectCards = [
+    { id: 1, top: "2252px", left: "120px" },
+    { id: 2, top: "2684px", left: "120px" },
+    { id: 3, top: "2252px", left: "610px" },
+    { id: 4, top: "2684px", left: "610px" },
+  ];
+
+  const viewButtons = [
+    { id: 1, top: "2568px", left: "calc(50.00%_-_275px)" },
+    { id: 2, top: "3000px", left: "calc(50.00%_-_275px)" },
+    { id: 3, top: "2568px", left: "calc(50.00%_+_214px)" },
+    { id: 4, top: "3000px", left: "calc(50.00%_+_214px)" },
+  ];
+
+  return (
+    <div className="bg-[#f5f5f7] w-full min-w-[1200px] min-h-[4102px] relative">
+      <HeroSection />
+
+      <AboutMeSection />
+
+      <KeyProjectsSection />
+
+      <button
+        className="inline-flex items-center gap-5 absolute top-[2179px] left-[986px] border border-solid border-[#5b5fef] px-4 py-2 rounded-3xl overflow-hidden cursor-pointer hover:bg-[#5b5fef] hover:text-[#f5f5f7] transition-colors"
+        aria-label="View more projects"
+      >
+        <span className="inline-flex items-center relative flex-[0_0_auto]">
+          <span className="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-[#5b5fef] text-xs text-center tracking-[0] leading-4 whitespace-nowrap hover:text-[#f5f5f7]">
+            View more
+          </span>
+        </span>
+      </button>
+
+      <h2 className="absolute top-[2174px] left-[120px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-[#1c1c1e] text-[32px] tracking-[0] leading-[42px]">
+        Key projects
+      </h2>
+
+      {projectCards.map((card) => (
+        <div
+          key={card.id}
+          className="absolute w-[470px] h-[412px] bg-[linear-gradient(180deg,rgba(213,211,255,1)_0%,rgba(241,240,255,1)_100%)] rounded-lg"
+          style={{ top: card.top, left: card.left }}
+        />
+      ))}
+
+      {viewButtons.map((button) => (
+        <button
+          key={button.id}
+          className="absolute bg-[#5b5fef] inline-flex items-start px-4 py-2 rounded-3xl overflow-hidden cursor-pointer hover:bg-[#4a4ed9] transition-colors"
+          style={{ top: button.top, left: button.left }}
+          aria-label="View project details"
+        >
+          <span className="inline-flex items-center relative flex-[0_0_auto]">
+            <span className="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-[#f5f5f7] text-xs text-center tracking-[0] leading-4 whitespace-nowrap">
+              View
+            </span>
+          </span>
+        </button>
+      ))}
+
+      <h2 className="absolute top-[3200px] left-[calc(50.00%_-_480px)] w-[266px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-[#1c1c1e] text-[32px] tracking-[0] leading-[42px]">
+        Work experience
+      </h2>
+
+      <WorkExperienceSection />
+
+      <button
+        className="inline-flex items-center gap-5 absolute top-[3205px] left-[979px] bg-[#5b5fef] px-4 py-2 rounded-3xl overflow-hidden cursor-pointer hover:bg-[#4a4ed9] transition-colors"
+        aria-label="Download detailed CV"
+      >
+        <span className="inline-flex items-center relative flex-[0_0_auto]">
+          <span className="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-[#f5f5f7] text-xs text-center tracking-[0] leading-4 whitespace-nowrap">
+            Detailed CV
+          </span>
+        </span>
+      </button>
+
+      <img
+        className="absolute top-[3276px] left-[790px] w-[289px] h-[361px] aspect-[0.8]"
+        alt="Professional portrait"
+        src={IMG29851}
+      />
+
+      <ContactSection />
+    </div>
+  );
+};
